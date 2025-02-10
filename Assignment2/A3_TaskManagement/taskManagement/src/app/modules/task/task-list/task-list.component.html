@@ -1,0 +1,26 @@
+<h2>Task List</h2>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Priority</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let task of taskList">
+      <td>{{ task.id }}</td>
+      <td>{{ task.name }}</td>
+      <td>{{ task.priority }}</td>
+      <td>{{ task.status }}</td>
+      <td>
+        <button (click)="removeTask(task)" class="btn-completed">Completed</button>
+        <app-shared label="Completed" (childEvent)="removeTask(task)"></app-shared>
+        <button (click)="changeStatus(task)" class="btn-change-status">Change Status</button>
+        <app-shared label="Change" (childEvent)="changeStatus(task)"></app-shared>
+      </td>
+    </tr>
+  </tbody>
+</table>

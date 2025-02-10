@@ -1,0 +1,9 @@
+.my {
+    background-color: brown;
+    color: aliceblue;
+    transition-duration: 1s;
+}
+
+.my:hover {
+    background-color: red;
+}

@@ -1,0 +1,13 @@
+<h2>Create the Task</h2>
+<label for="task">Enter your task:</label>
+<input   [(ngModel)]="task" placeholder="Enter The Task">
+<br><br>
+<label for="priority">Enter your priority:</label>
+<input   [(ngModel)]="priority" placeholder="Enter priority of task">
+<br><br>
+<label for="status">Enter your status:</label>
+<input   [(ngModel)]="status" placeholder="Enter Pending,Completed,In Progress">
+<br><br>
+<button (click)="addTask(task,priority,status)">Add Task</button>
+<app-shared label="Add Task" (childEvent)="addTask(task,priority,status)"></app-shared>
+

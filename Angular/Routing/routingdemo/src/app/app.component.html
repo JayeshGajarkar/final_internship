@@ -1,0 +1,17 @@
+<nav>
+  <a routerLink="/home">Home</a>
+  <br>
+  <a routerLink="/about">About</a>
+  <br>
+  <a routerLink="/contact">Contact</a>
+  <br>
+  <a [routerLink]="['/product', 1]">Product 1</a>|
+  <a [routerLink]="['/product', 2]">Product 2</a>
+  <br>
+  <a routerLink="/user/list">User List</a>
+</nav>
+<router-outlet></router-outlet>
+<br><br>
+<button (click)="goToContact()">Contact</button>
+
+<h1>Home</h1>

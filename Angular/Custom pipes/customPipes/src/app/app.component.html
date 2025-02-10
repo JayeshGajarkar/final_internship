@@ -1,0 +1,18 @@
+<form [formGroup]="creditForm" (ngSubmit)="onSubmit()">
+  <label for="creditNo">Enter credit number:</label>
+  <input type="text" id="creditNo" name="creditNo" formControlName="creditNo">
+  <br>
+  <span *ngIf="creditForm.get('creditNo')!.invalid && creditForm.get('creditNo')!.touched">
+    Credit card number is invalid
+  </span>
+  <br>
+  <button type="submit">Submit</button>
+</form>
+
+<div *ngIf="creditNumber">
+  <p>{{ creditNumber | creditCard }}</p>
+</div>
+
+<input type="text" [(ngModel)]="credit">
+<br>
+{{credit | creditCard}}

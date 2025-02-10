@@ -1,0 +1,12 @@
+<app-login></app-login>
+<app-profile></app-profile>
+<app-registration></app-registration>
+
+<h1>App component:</h1>
+<p>Data received from child: {{receivedData}}</p>
+<app-child [childData]="parentData" (childevent)="receiveData($event)"></app-child>
+
+
+<app-order></app-order>
+
+<app-user></app-user>

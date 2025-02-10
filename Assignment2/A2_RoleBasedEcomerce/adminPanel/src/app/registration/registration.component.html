@@ -1,0 +1,31 @@
+<form (ngSubmit)="onSubmit(userForm)" #userForm="ngForm">
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" id="name" [(ngModel)]="user.name" name="name" required #name="ngModel">
+      <div *ngIf="name.invalid && (name.dirty || name.touched)">
+        <div *ngIf="name.hasError('required')">Name is required.</div>
+      </div>
+    </div>
+  
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" [(ngModel)]="user.email" name="email" required email #email="ngModel">
+      <div *ngIf="email.invalid && (email.dirty || email.touched)">
+        <div *ngIf="email.hasError('required')">Email is required.</div>
+        <div *ngIf="email.hasError('email')">Invalid email address.</div>
+      </div>
+    </div>
+
+    <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" [(ngModel)]="user.password" name="password" required  minlength="6" #password="ngModel">
+        <div *ngIf="password.invalid && (password.dirty || password.touched)">
+            <div *ngIf="password.hasError('required')">Password is Required</div>
+            <div *ngIf="password.hasError('minlength')">Password must br greater than 6 letters</div>
+            <div></div>
+        </div>
+    </div>
+  
+    <button type="submit" [disabled]="userForm.invalid">Submit</button>
+  </form>
+  
