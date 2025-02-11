@@ -1,34 +1,27 @@
-// app.component.ts
-import { Component, ViewChild, AfterViewInit } from '@angular/core';
-import { AdHostDirective } from './ad-host.directive';
-import { AdService } from './ad.service';
-import { AdComponent } from './ad.component';
-import { ProfileComponent } from './profile.component';
+import { Component, ViewChild, ViewContainerRef } from '@angular/core';
+import { DynamicHostDirective } from './dynamic-host.directive';
+import { DynamicComponentComponent } from './dynamic-component/dynamic-component.component';
 
 @Component({
   selector: 'app-root',
-  template: `
-    <div>
-      <button (click)="loadAd()">Load Ad</button>
-      <button (click)="loadProfile()">Load Profile</button>
-      <ng-template appAdHost></ng-template>
-    </div>
-  `
+  templateUrl: './app.component.html',
+  styleUrl:'./app.component.css',
+  standalone:false
 })
-export class AppComponent implements AfterViewInit {
-  @ViewChild(AdHostDirective, { static: true }) adHost!: AdHostDirective;
+export class AppComponent {
+  @ViewChild(DynamicHostDirective, { static: true }) dynamicHost!: DynamicHostDirective;
 
-  constructor(private adService: AdService) {}
+  constructor() {}
 
-  ngAfterViewInit() {
-    this.loadAd();
+
+  loadComponent() {
+    const viewContainerRef = this.dynamicHost.viewContainerRef;
+    viewContainerRef.clear();
+    viewContainerRef.createComponent(DynamicComponentComponent);
   }
 
-  loadAd() {
-    this.adService.loadComponent(this.adHost.viewContainerRef, AdComponent);
-  }
-
-  loadProfile() {
-    this.adService.loadComponent(this.adHost.viewContainerRef, ProfileComponent);
+  rating:number=0;
+  assign(rate:number){
+      this.rating=rate;
   }
 }

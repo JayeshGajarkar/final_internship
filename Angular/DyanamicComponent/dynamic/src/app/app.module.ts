@@ -2,20 +2,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { AdComponent } from './ad.component';
-import { ProfileComponent } from './profile.component';
-import { AdHostDirective } from './ad-host.directive';
-import { AdService } from './ad.service';
+import { DynamicComponentComponent } from './dynamic-component/dynamic-component.component';
+import { DynamicHostDirective } from './dynamic-host.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AdComponent,
-    ProfileComponent,
-    AdHostDirective
+    DynamicComponentComponent,
+    DynamicHostDirective
   ],
   imports: [BrowserModule],
-  providers: [AdService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
