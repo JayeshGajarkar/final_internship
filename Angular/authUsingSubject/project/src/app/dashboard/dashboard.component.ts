@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../services/auth.service';
+import { User } from '../models/user.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,7 +10,7 @@ import { AuthService } from '../auth.service';
 })
 export class DashboardComponent {
   constructor(private service:AuthService){}
-    user:string | null='';
+    user:User| null=null;
     ngOnInit(){
       this.service.user$.subscribe((user)=>{
         this.user=user;

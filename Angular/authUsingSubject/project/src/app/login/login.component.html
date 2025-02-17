@@ -1,3 +1,23 @@
 <button (click)="logIn()">Login</button>
 <button (click)="logOut()">LogOut</button>
-<p>{{user}}</p>
+
+
+<div *ngIf="!editEnable">
+  <p> {{user?.name}} | {{user?.email}} | {{user?.phoneNo}}</p>
+  <button (click)="editProfile()">Edit</button>
+</div>
+
+<div *ngIf="editEnable">
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    <label for="name">Name:</label>
+    <input id="name" formControlName="name" type="text" />
+
+    <label for="email">Email:</label>
+    <input id="email" formControlName="email" type="email" />
+
+    <label for="phoneNo">Phone Number:</label>
+    <input id="phoneNo" formControlName="phoneNo" type="text" />
+
+    <button type="submit">Save</button>
+  </form>
+</div>

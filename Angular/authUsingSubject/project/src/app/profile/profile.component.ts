@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import { AuthService } from '../auth.service';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../services/auth.service';
+import { User } from '../models/user.model';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -7,14 +9,23 @@ import { AuthService } from '../auth.service';
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })
-export class ProfileComponent {
-  constructor(private service:AuthService){}
+export class ProfileComponent implements OnInit{
+  constructor(private service:AuthService,private route:ActivatedRoute){}
   
-    user:string | null='';
+    user:User | null=null;
   
     ngOnInit(){
       this.service.user$.subscribe((user)=>{
         this.user=user;
       });
+
+      this.route.paramMap.subscribe(params => {
+        const userName = params.get('name');
+        if(userName){
+          this.service.loginWithUser(userName);
+        }
+      });
     }
+
+    
 }

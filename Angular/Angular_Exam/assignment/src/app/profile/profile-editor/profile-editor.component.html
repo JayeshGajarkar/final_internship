@@ -1,0 +1,47 @@
+<h2>Welcome to the profile</h2>
+<div *ngIf="!editEnable;">
+  <!-- Display user details -->
+  <p>{{ user.name }}</p>
+  <p>{{ user.email }}</p>
+  <p>{{ user.address.street }}, {{ user.address.city }}, {{ user.address.zipCode }}</p>
+  <button (click)="onEditEnable()">Edit</button> <!-- Button to enable edit mode -->
+</div>
+
+<div *ngIf="editEnable;">
+  <form #profileForm="ngForm" (ngSubmit)="onSubmit()">
+    <!-- Form fields for user details -->
+    <label for="name">Name:</label>
+    <input id="name" name="name" [(ngModel)]="user.name" required />
+    <div *ngIf="profileForm.controls['name']?.invalid && profileForm.controls['name']?.touched">
+      Name is required.
+    </div>
+
+    <label for="email">Email:</label>
+    <input id="email" name="email" [(ngModel)]="user.email" required email />
+    <div *ngIf="profileForm.controls['email']?.invalid && profileForm.controls['email']?.touched">
+      Enter a valid email.
+    </div>
+
+    <div>
+      <label for="street">Street:</label>
+      <input id="street" name="street" [(ngModel)]="user.address.street" required />
+      <div *ngIf="profileForm.controls['street']?.invalid && profileForm.controls['street']?.touched">
+        Street is required.
+      </div>
+
+      <label for="city">City:</label>
+      <input id="city" name="city" [(ngModel)]="user.address.city" required />
+      <div *ngIf="profileForm.controls['city']?.invalid && profileForm.controls['city']?.touched">
+        City is required.
+      </div>
+
+      <label for="zipCode">Zip Code:</label>
+      <input id="zipCode" name="zipCode" [(ngModel)]="user.address.zipCode" required />
+      <div *ngIf="profileForm.controls['zipCode']?.invalid && profileForm.controls['zipCode']?.touched">
+        Zip Code is required.
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="profileForm.invalid">Save</button> <!-- Submit button -->
+  </form>
+</div>
