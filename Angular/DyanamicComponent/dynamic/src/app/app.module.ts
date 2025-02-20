@@ -2,14 +2,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { DynamicComponentComponent } from './dynamic-component/dynamic-component.component';
-import { DynamicHostDirective } from './dynamic-host.directive';
+import { DynamicComponent } from './dynamic/dynamic.component';
+import { ViewContainerDirective } from './directives/view-container.directive';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    DynamicComponentComponent,
-    DynamicHostDirective
+    DynamicComponent,
+    ViewContainerDirective,
   ],
   imports: [BrowserModule],
   providers: [],

@@ -1,10 +1,10 @@
 import { Directive, ViewContainerRef } from '@angular/core';
 
 @Directive({
-  selector: '[appDynamicHost]',
+  selector: '[appViewContainer]',
   standalone: false
 })
-export class DynamicHostDirective {
+export class ViewContainerDirective {
 
   constructor(public viewContainerRef:ViewContainerRef) { }
 

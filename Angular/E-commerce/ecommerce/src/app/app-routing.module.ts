@@ -9,14 +9,15 @@ import { LogInComponent } from './user/log-in/log-in.component';
 import { ManagerGuard } from './Guards/manager.guard';
 import { AdminGuard } from './Guards/admin.guard';
 import { AuthGuard } from './Guards/auth.guard';
+import { deactiavateGuard } from './Guards/deactiavate.guard';
 
 const routes: Routes = [
   {path:'userList',component:UserListComponent,canActivate:[ManagerGuard]},
-  {path:'addProduct',component:AddProductComponent,canActivate:[AdminGuard]},
+  {path:'addProduct',component:AddProductComponent,canActivate:[AdminGuard],canDeactivate:[deactiavateGuard]},
   {path:'productList',component:ProductListComponent},
   {path:'cart',component:CartComponent,canActivate:[AuthGuard]},
-  {path:'registration',component:RegistrationComponent},
-  {path:'logIn',component:LogInComponent}
+  {path:'registration',component:RegistrationComponent,canDeactivate:[deactiavateGuard]},
+  {path:'logIn',component:LogInComponent,canDeactivate:[deactiavateGuard]}
 ];
 
 @NgModule({

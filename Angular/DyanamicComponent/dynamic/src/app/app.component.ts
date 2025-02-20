@@ -1,6 +1,7 @@
 import { Component, ViewChild, ViewContainerRef } from '@angular/core';
-import { DynamicHostDirective } from './dynamic-host.directive';
-import { DynamicComponentComponent } from './dynamic-component/dynamic-component.component';
+import { ViewContainerDirective } from './directives/view-container.directive';
+import { DynamicComponent } from './dynamic/dynamic.component';
+
 
 @Component({
   selector: 'app-root',
@@ -9,15 +10,13 @@ import { DynamicComponentComponent } from './dynamic-component/dynamic-component
   standalone:false
 })
 export class AppComponent {
-  @ViewChild(DynamicHostDirective, { static: true }) dynamicHost!: DynamicHostDirective;
 
-  constructor() {}
+  @ViewChild(ViewContainerDirective) viewContainer!:ViewContainerDirective;
 
-
-  loadComponent() {
-    const viewContainerRef = this.dynamicHost.viewContainerRef;
+  loadComponenet(){
+    const viewContainerRef=this.viewContainer.viewContainerRef;
     viewContainerRef.clear();
-    viewContainerRef.createComponent(DynamicComponentComponent);
+    viewContainerRef.createComponent(DynamicComponent);
   }
 
   rating:number=0;

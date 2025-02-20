@@ -13,7 +13,7 @@ export class LoginService {
   private role:string='';
   private loggedIn:boolean=false;
   private UserList:Array<User>=[{id:1,name:"jayesh",email:'jayeshgajarkar@gmail.com',role:"Admin",password:"J@yesh1711"}];
-  private userId:number=1;
+  private sunmited:boolean=false;
   private currUser: User;
 
   subject = new BehaviorSubject<boolean>(this.loggedIn)
@@ -44,6 +44,14 @@ export class LoginService {
 
   isLoggedIn(){
     return this.loggedIn;
+  }
+
+  isSubmited(){
+    return this.sunmited;
+  }
+
+  changeSubmitStatus(status:boolean){
+    this.sunmited=status;
   }
 
   addUser(user:User){

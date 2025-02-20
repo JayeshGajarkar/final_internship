@@ -22,10 +22,15 @@ export class RegistrationComponent {
     password: new FormControl('', [Validators.required, Validators.minLength(6)])
   })
 
+  ngOnInit(){
+    this.service.changeSubmitStatus(false);
+  }
+
   onSubmit(){
-    alert("Form submitted sucessfully");
     this.service.addUser((this.singUpForm.value) as User);
     this.singUpForm.reset();
     //console.log(this.singUpForm.value);
+    this.service.changeSubmitStatus(true);
+    alert("Form submitted sucessfully");
   }
 }

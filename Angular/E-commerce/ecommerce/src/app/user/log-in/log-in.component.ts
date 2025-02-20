@@ -22,6 +22,11 @@ export class LogInComponent{
   ngOnInit(){
     this.isLoggedIn=this.service.isLoggedIn();
     this.currUser=this.service.getCurrUser();
+    if(!this.isLoggedIn){
+      this.service.changeSubmitStatus(false);
+    }else{
+      this.service.changeSubmitStatus(true);
+    }
   }
 
   logInForm=new FormGroup({
@@ -35,12 +40,13 @@ export class LogInComponent{
   
   onSubmit(){
     if(this.service.isValid(this.logInForm.value.email as string,this.logInForm.value.password as string)){
-      alert("Login sucessful");
       this.isLoggedIn=true;
       this.currUser=this.service.getCurrUser();
       // this.logInEvent.emit(true);
       this.logInForm.reset();
       //console.log(this.singUpForm.value);
+      this.service.changeSubmitStatus(true);
+      alert("Login sucessful");
     }else{
       alert("Invalid credential");
     }

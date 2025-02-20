@@ -14,4 +14,13 @@ export class AppComponent {
   goToContact(){
     this.router.navigate(['/contact']);
   }
+
+  array:Array<number>=[1,2,3,4,5,6];
+
+  addEle(){
+    const num:number=Math.floor(Math.random()*10);
+    this.array.push(num);
+    console.log("Added number",num);
+  }
+
 }

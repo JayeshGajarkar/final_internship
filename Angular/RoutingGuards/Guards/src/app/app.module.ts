@@ -11,7 +11,6 @@ import { ParameterComponent } from './parameter/parameter.component';
 @NgModule({
   declarations: [
     AppComponent,
-    DemoComponent,
     NotFoundComponent,
     ParameterComponent
   ],
