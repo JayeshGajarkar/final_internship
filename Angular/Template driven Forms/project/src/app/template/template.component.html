@@ -1,0 +1,18 @@
+<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" [(ngModel)]="myName" required>
+    <div *ngIf="myForm.controls['name']?.invalid && myForm.controls['name']?.touched">
+        Name is required
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input type="email"  id="email" name="email" ngModel >
+  </div>
+    <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" ngModel>
+    </div>
+  <button type="submit" [disabled]="myForm.invalid">Submit</button>
+</form>

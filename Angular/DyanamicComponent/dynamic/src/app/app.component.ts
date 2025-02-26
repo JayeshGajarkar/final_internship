@@ -23,4 +23,6 @@ export class AppComponent {
   assign(rate:number){
       this.rating=rate;
   }
+
+  
 }

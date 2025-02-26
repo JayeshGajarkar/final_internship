@@ -1,0 +1,48 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input type="text" id="name" formControlName="name">
+    <div *ngIf="myForm.controls['name']?.invalid && myForm.controls['name']?.touched">
+        Name is required
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input type="email" id="email" formControlName="email">
+  </div>
+  <div class="form-group">
+    <label for="password">Password:</label>
+    <input type="password" id="password" formControlName="password">
+  </div>
+  <!-- <div formArrayName="Skills">
+    <div *ngFor="let control of (myForm.get('Skills') as FormArray).controls; let i = index">
+      <input type="text" [formControlName]="i">
+    </div>
+  </div> -->
+  <div formArrayName="Skills">
+    <div *ngFor="let control of skills.controls; let i = index">
+      <input type="text" [formControlName]="i">
+      <button type="button" (click)="OnClickRemoveSkill(i)">Remove</button>
+    </div>
+  </div>
+  <button type="button" (click)="OnClickAddSkill()">Add skill</button>
+ 
+
+  <div formArrayName="Experience">
+    <div *ngFor="let control of experience.controls; let i = index" [formGroupName]="i">
+      <label for="company">Company:</label>
+      <input type="text" formControlName='company' placeholder="Company">
+      <label for="position">Position:</label>
+      <input type="text" formControlName='position' placeholder="Position">
+      <label for="from">From:</label>
+      <input type="date" formControlName='from' placeholder="From">
+      <label for="to">To:</label>
+      <input type="date" formControlName='to' placeholder="To">
+      <button type="button" (click)="OnClickRemoveExperience(i)">Remove</button>
+    </div>
+  </div>
+
+  <button type="button" (click)="OnClickAddExperience()">Add experience</button>
+
+  <button type="submit" [disabled]="myForm.invalid">Submit</button>
+</form>
