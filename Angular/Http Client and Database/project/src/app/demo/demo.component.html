@@ -1,0 +1,30 @@
+<div class="user-list">
+    <div *ngFor="let user of users" class="user-card">
+        <div class="user-id">{{user.id}}</div>
+        <div class="user-name">{{user.name}}</div>
+        <div class="user-email">{{user.email}}</div>
+        <br>
+        <button (click)="editUser(user)">Edit</button>
+        <br>
+        <button (click)="deleteUser(user)">Delete</button>
+    </div>
+</div>
+<br><br>
+<button (click)="getUser()">Get Users</button>
+
+<br><br>
+
+<form [formGroup]="addUserForm" (ngSubmit)="addUser()">
+    <label for="id">ID:</label>
+    <input type="text" name="id" formControlName="id">
+    <br>
+    <label for="name">NAME:</label>
+    <input type="text" name="name" formControlName="name">
+    <br>
+    <label for="email">Email:</label>
+    <input type="email" name="email" formControlName="email">
+    <br>
+    <label for="password">Password:</label>
+    <input type="password" name="password" formControlName="password">
+    <button type="submit">Add User</button>
+</form>
