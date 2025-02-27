@@ -1,5 +1,6 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { Message } from '../models/model';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,11 +14,15 @@ export class DashboardComponent {
   userMessage: string = '';
   messages: Message[] = [];
   isTyping: boolean = false;
-  botMessage: string = 'This is a response from the chatbot.';
+  botMessage: string = '';
+  
+  constructor(private dataService: DataService) {}
+
 
   sendMessage() {
     if (this.userMessage.trim()) {
       this.messages.push({ text: this.userMessage, user: true });
+      this.botMessage=this.dataService.getResponce(this.userMessage);
       this.userMessage = '';
       this.scrollToBottom();
       this.getBotResponse();

@@ -212,13 +212,29 @@ INSTEAD OF DELETE
 AS 
 BEGIN
 	UPDATE Hotel_Rooms_J5
-	SET Status = 'NotAvailable'
+	SET Status = 'Available'
 	WHERE RoomId = (SELECT RoomId FROM deleted);
 	PRINT 'Booking Cancelled!';
 END;
 GO
 
-DROP TRIGGER trg_CancelBooking_J5;
+
+
+--trigger for booking
+GO 
+CREATE TRIGGER on_booking_J5
+ON Hotel_Bookings_J5
+AFTER INSERT
+AS 
+BEGIN
+	UPDATE Hotel_Rooms_J5
+	SET Status = 'NotAvailable'
+	WHERE RoomId = (SELECT RoomId FROM inserted);
+	PRINT ' Room Booking !';
+END;
+GO
+	
+
 
 -- Full Text Search
 SELECT * FROM Hotel_HotelBranch_J5
@@ -237,6 +253,14 @@ WHERE CONTAINS(LocationDecription, 'Beach');
 SELECT * FROM Hotel_Bookings_J5;
 SELECT * FROM Hotel_Rooms_J5;
 
+UPDATE Hotel_Rooms_J5
+	SET Status = 'NotAvailable'
+	WHERE RoomId =102;
+
+INSERT INTO Hotel_Bookings_J5 (CustomerId, RoomId, CheckInDate, CheckOutDate, TotalAmount) VALUES
+(4, 106, '2025-01-01', '2025-01-05', 3000.00);
+
+
 DELETE 
 FROM Hotel_Bookings_J5
-WHERE BookingID = 2;
+WHERE BookingID = 8;
