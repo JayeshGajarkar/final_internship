@@ -1,0 +1,133 @@
+h2 {
+    text-align: center ;
+}
+
+main {
+    padding: 20px;
+  }
+  
+  #welcome {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  #welcome h1 {
+    font-size: 2.5em;
+    color: #4CAF50;
+    margin-bottom: 10px;
+  }
+  
+  #welcome p {
+    font-size: 1.2em;
+    color: #555;
+  }
+  
+  #features {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  
+  #features h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  #features ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  #features li {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 5px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+  
+  #features li:hover {
+    background-color: #f1f1f1;
+  }
+  
+  #contact {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #f0f8ff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  #contact h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  #contact form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  #contact label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  #contact input, #contact textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  #contact input:focus, #contact textarea:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+  }
+  
+  #welcome button {
+    padding: 10px;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+
+  #contact button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  #contact button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+  }
+
+  #welcome button:hover{
+    background-color: #45a049;
+    transform: scale(1.05);
+  }
+  
+  #contact button:active {
+    background-color: #3e8e41;
+    transform: scale(1);
+  }
+  
+ 
