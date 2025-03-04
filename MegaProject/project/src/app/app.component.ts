@@ -23,5 +23,9 @@ export class AppComponent {
   isLoggedIn() {
     return this.currUser !== null;
   }
+
+  logOut(){
+    this.authService.logOut();
+  }
     
 }

@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/model';
 import { BehaviorSubject, Subject } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   private user:User | null=null;
   // private isLoggedIn = new Subject<boolean>();
@@ -23,11 +24,13 @@ export class AuthService {
     }else{
       alert('Invalid Credentials');
     }
+    this.router.navigate(['/dashboard']);
   }
 
   logOut() {
     this.user = null;
     this.userLoign.next(this.user);
+    this.router.navigate(['/login']);
   }
 
   signIn(user: User) {

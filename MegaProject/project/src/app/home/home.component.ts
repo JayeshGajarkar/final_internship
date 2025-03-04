@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -17,5 +18,11 @@ export class HomeComponent {
 
   startChat() {
     this.router.navigate(['/dashboard']);
+  }
+
+  onSubmit(form:NgForm){
+    alert("Submited !")
+    console.log(form.value);
+    form.reset();
   }
 }
