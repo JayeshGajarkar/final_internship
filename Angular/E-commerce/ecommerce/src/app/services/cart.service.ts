@@ -10,7 +10,7 @@ export class CartService {
 
   private cartItem:Array<Product>=[];
 
-  addCart(product:Product){
+    addCart(product:Product){
       //console.log("Product Added");
       this.cartItem.push(product);
     }

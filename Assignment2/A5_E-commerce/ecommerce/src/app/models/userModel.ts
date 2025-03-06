@@ -5,6 +5,3 @@ export interface User {
     role: "Admin" | "Manager" | "User",
     password:string,
 }
-
-
-

@@ -17,7 +17,7 @@ async function getOrder(id){
 
             // resolve(`Order is ready for ${id}|${orders[id].item}|${orders[id].name}`);
             resolve("Order is ready ..!")
-        },20000)
+        },15000)
     })
 }
 

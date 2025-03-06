@@ -11,11 +11,10 @@ export class AdminGuard implements CanActivate {
 
   canActivate(): boolean {
     if (this.service.isAdmin() && this.service.isLoggedIn()) {
-      return true; // Allow access if the user is authenticated
+      return true; 
     } else {
-      //this.router.navigate(['/login']); // Redirect to login if not authenticated
       alert("You are not Admin to access this page");
-      return false; // Prevent access to the route
+      return false; 
     }
   }
 
