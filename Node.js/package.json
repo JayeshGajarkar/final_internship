@@ -5,7 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node dists/erver.js",
-    "dev": "nodemon Assignment3/server.ts"
+    "dev": "nodemon JWT_authentication/app.ts"
   },
   "keywords": [],
   "author": "",
@@ -14,12 +14,14 @@
   "description": "",
   "dependencies": {
     "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
     "multer": "^1.4.5-lts.1",
     "nodemon": "^3.1.9",
     "typescript": "^5.8.2"
   },
   "devDependencies": {
     "@types/express": "^5.0.0",
+    "@types/jsonwebtoken": "^9.0.9",
     "@types/mssql": "^9.1.7",
     "ts-node": "^10.9.2"
   }

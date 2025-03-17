@@ -1,0 +1,9 @@
+<P>This is the demo component</P>
+<ng-content></ng-content>
+<p>This another content in demo component</p>
+<!-- <div *ngIf="show">
+    <ng-container [ngTemplateOutlet]="condition.template"></ng-container>
+</div> -->
+<ng-content select='[second]'></ng-content>
+
+<ng-template [ngComponentOutlet]="getComponent()"></ng-template>

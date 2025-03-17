@@ -28,6 +28,7 @@ INSERT INTO Employee_J2 (id, name, email, role) VALUES
 (3, 'Alice Johnson', 'alice.johnson@example.com', 'admin'),
 (4, 'Bob Brown', 'bob.brown@example.com', 'employee');
 
+
 INSERT INTO Leave_J2 (id, employee_id, start_date, end_date, leave_type, status, reason) VALUES
 (1, 1, '2025-03-10', '2025-03-15', 'Vacation', 'Pending', 'Family vacation'),
 (2, 2, '2025-04-01', '2025-04-05', 'Sick', 'Approved', 'Medical leave'),

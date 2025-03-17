@@ -12,6 +12,7 @@ import { DynamicComponent } from './dynamic/dynamic.component';
 export class AppComponent {
 
   @ViewChild(ViewContainerDirective) viewContainer!:ViewContainerDirective;
+  @ViewChild('dynamic') container!: ViewContainerRef;
 
   loadComponenet(){
     const viewContainerRef=this.viewContainer.viewContainerRef;
@@ -22,6 +23,10 @@ export class AppComponent {
   rating:number=0;
   assign(rate:number){
       this.rating=rate;
+  }
+
+  loadComponenet2(){
+    console.log(this.container);
   }
 
   
