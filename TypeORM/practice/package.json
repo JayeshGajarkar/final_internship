@@ -1,11 +1,10 @@
 {
-  "name": "node",
+  "name": "typeorm",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node dists/erver.js",
-    "dev": "nodemon Assignment4/server.ts"
+    "dev": "nodemon --exec ts-node src/index.ts"
   },
   "keywords": [],
   "author": "",
@@ -13,17 +12,17 @@
   "type": "commonjs",
   "description": "",
   "dependencies": {
-    "bcryptjs": "^3.0.2",
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "jsonwebtoken": "^9.0.2",
-    "multer": "^1.4.5-lts.1",
+    "mssql": "^11.0.1",
     "nodemon": "^3.1.9",
-    "typescript": "^5.8.2"
+    "reflect-metadata": "^0.2.2",
+    "typeorm": "^0.3.21"
   },
   "devDependencies": {
     "@types/express": "^5.0.0",
-    "@types/jsonwebtoken": "^9.0.9",
     "@types/mssql": "^9.1.7",
-    "ts-node": "^10.9.2"
+    "@types/node": "^22.13.10",
+    "typescript": "^5.8.2"
   }
 }
