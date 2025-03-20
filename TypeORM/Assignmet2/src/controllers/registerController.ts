@@ -5,7 +5,7 @@ export class RegisterController {
     static async registerUser(req: any, res: any) {
         try {
             const { name, email, bio } = req.body;
-            const user = await RegisterService.registerUser(name, email, bio);
+             await RegisterService.registerUser(name, email, bio);
             res.status(201).send("User registered successfully");
         } catch (err) {
             console.log(err);

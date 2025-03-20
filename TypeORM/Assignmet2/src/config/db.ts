@@ -2,8 +2,9 @@ import { DataSource } from "typeorm";
 import "reflect-metadata";
 import { User} from "../entities/user";
 import { Profile } from "../entities/profile";
-import { Student } from "../entities/student";
-import { Course } from "../entities/course";
+import { Order } from "../entities/order";
+import { Product } from "../entities/product";
+
  
 export const AppDataSource = new DataSource({
     type:'mssql',
@@ -12,8 +13,8 @@ export const AppDataSource = new DataSource({
     username:'j2',
     password:'123456',
     database:'JIBE_MAIN_TRAINING',
-    synchronize:false,
-    entities: [User,Profile,Student,Course],
+    synchronize:true,
+    entities: [User,Profile,Order,Product],
     options:{
         encrypt:true,
         trustServerCertificate:true
