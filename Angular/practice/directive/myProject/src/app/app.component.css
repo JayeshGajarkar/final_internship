@@ -1,0 +1,12 @@
+.highlight{
+    background-color: yellow;
+    transition: 0s 2s;
+}
+
+.class1{
+    color: red;
+}
+
+.class2{
+    color:blue;
+}

@@ -24,4 +24,17 @@ export class orderController {
             res.status(500).send(err.message);
         }
     }
+
+    static async getOrderLessThan100(req:any,res:any) {
+        const id = parseInt(req.params.id);
+        try {
+            const result=await OrderServices.getOrderLessThan100(id);
+            res.status(200).json(result);
+        } catch (err) {
+            console.log(err);
+            res.send({ "error": err });
+        }
+    }
+
+   
 }

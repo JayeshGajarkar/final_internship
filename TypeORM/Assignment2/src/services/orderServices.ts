@@ -2,6 +2,8 @@ import { orderRepository } from "../repositories/orderRepository";
 import { productRepository } from "../repositories/productRepository";
 import { userRepository } from "../repositories/userRepository";
 import orderItemRepository from "../repositories/orderItemRepository";
+import { Order } from "../entities/order";
+import { Brackets } from "typeorm";
 
 export class OrderServices{
 
@@ -14,14 +16,13 @@ export class OrderServices{
             console.log("Error from service:",err.message);
             return err;
         }
-
     }
 
     static async createOrder(address:string,userId:number,productIds:number[]){
         try{
             const products = await productRepository.findByIds(productIds);
             const price = products.reduce((acc,product)=>acc+product.price,0);
-            const order = orderRepository.create({address,products});
+            const order = orderRepository.create({address,price,products});
 
             const user=await userRepository.findOne({where:{id:userId},relations:["orders"]});
 
@@ -52,6 +53,23 @@ export class OrderServices{
              console.log("Error from service:",err.message);
              return err;
          }
+     }
+
+
+     static async getOrderLessThan100(userId:number){
+        try{
+            return await userRepository.createQueryBuilder('user')
+            .where(qb=>{
+                const subQuery= qb.subQuery()
+                .select("SUM(order.price)")
+                .from(Order,'order')
+                .where('order.userId=:id',{id:userId})
+                .getQuery();
+                return `(${subQuery})>=40`;
+            }).getMany()
+        }catch(error){
+            return error;
+        }
      }
 
 }

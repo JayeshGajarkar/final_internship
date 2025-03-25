@@ -1,9 +1,7 @@
 import { DataSource } from "typeorm";
 import "reflect-metadata";
 import { User} from "../entities/user";
-import { Profile } from "../entities/profile";
-import { Order } from "../entities/order";
-import { Product } from "../entities/product";
+
 
  
 export const AppDataSource = new DataSource({
@@ -14,7 +12,7 @@ export const AppDataSource = new DataSource({
     password:'123456',
     database:'JIBE_MAIN_TRAINING',
     synchronize:false,
-    entities: [User,Profile,Order,Product],
+    entities: [User],
     options:{
         encrypt:true,
         trustServerCertificate:true

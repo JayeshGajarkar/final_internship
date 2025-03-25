@@ -6,11 +6,7 @@ export class RegisterService {
         try {
             const user = userRepository.create({ name, email });
             const profile = profileRepository.create({ bio, user });
-
-
             await profileRepository.save(profile);
-
-
             return { user, profile };
         } catch (err: any) {
             console.log("Error from service:", err.message);
@@ -24,7 +20,6 @@ export class RegisterService {
             if (!user) {
                 throw new Error("User not found");
             }
-
             await userRepository.remove(user);
         } catch (err) {
             console.log("Error from service:", err.message);

@@ -1,0 +1,27 @@
+<app-profile></app-profile>
+<app-login></app-login>
+<app-welcome></app-welcome>
+<p appHighlight>Hover over this text to see the highlight effect.</p>
+<p [appHighlight]="'red'">Hover over this text to see the default highlight effect.</p>
+
+<label for="name">Enter your name:</label>
+<input [(ngModel)]="name" placeholder="Enter your name">
+<p [ngClass]="{'highlight':isEnable}">Hello my name is {{name}}</p>
+
+<p [appAppClass]="{class1:false,class2:true}">This is the custome ngclass directive</p>
+<p [appStyle]="{color:'blue'}">This is the custome ngStyle directive</p>
+
+
+<button [ngStyle]="{'background-color':isEnable?'red':'green'}" (click)="change()">Change</button>
+
+
+<div *ngIf="isloggedIn ;else block">
+    <p>Welcome user</p>
+</div>
+<ng-template #block>
+    <p>User log out</p>
+</ng-template>
+
+<diV *appIf="isEnable">
+    <p>Hell this is cutome if directive</p>
+</diV>

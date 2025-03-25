@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const queryContorller_1 = require("../controllers/queryContorller");
+const queryRouter = (0, express_1.Router)();
+queryRouter.get("/category/:category", queryContorller_1.queryController.getProductByCategory);
+queryRouter.get("/brand/:brand", queryContorller_1.queryController.getProductByBrand);
+queryRouter.get("/rating/:rating", queryContorller_1.queryController.getProductByRating);
+queryRouter.post("/filterPrice", queryContorller_1.queryController.getProductByPriceRange);
+queryRouter.get('/sort/:sorting', queryContorller_1.queryController.sortProduct);
+queryRouter.post('/filter', queryContorller_1.queryController.getProduct);
+exports.default = queryRouter;

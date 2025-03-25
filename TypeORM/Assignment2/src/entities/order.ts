@@ -10,6 +10,9 @@ export class Order {
     @Column()
     address: string;
 
+    @Column()
+    price: number;
+
     @ManyToOne(() => User, user => user.orders)
     user: User;
 
